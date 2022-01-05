@@ -1,0 +1,16 @@
+---
+- hosts: win
+  gather_facts: no
+  vars_files:
+    - become.yml
+  tasks:
+
+  - name: Copiar Script y archivo csv
+    copy:
+      src: /home/julen/Escritorio/Usuarios/
+      dest: C:\
+
+  - name: crear varios usuarios a la vez
+    win_shell: |
+      cd C:\
+      .\bulk_users1.ps1
